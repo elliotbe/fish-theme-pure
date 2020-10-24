@@ -1,3 +1,4 @@
+# Changed the arrows glyphs
 function __pure_git_arrows
   set -l working_tree $argv[1]
 
@@ -19,12 +20,12 @@ function __pure_git_arrows
   set -l arrows ""
 
   if test $left -gt 0
-    set arrows $arrows"⇡"
+    set arrows $arrows"↑"
   end
 
   if test $right -gt 0
-    set arrows $arrows"⇣"
+    set arrows $arrows"↓"
   end
 
-  echo $arrows
+  echo -n $arrows
 end

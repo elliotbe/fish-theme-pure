@@ -24,7 +24,7 @@ _NOTE: As it is now, this theme is not intended to be customizable; all values a
 With [Fisher](https://github.com/jorgebucaran/fisher):
 
 ```fish
-fisher add MaxMilton/pure
+fisher add elliotbe/fish-theme-pure
 ```
 
 _NOTE: Requires fish version >= `3.0`._

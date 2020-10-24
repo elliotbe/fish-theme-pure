@@ -1,3 +1,10 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                             #
+#  Custom Pure Theme for fish                                 #
+#  Source: https://github.com/MaxMilton/pure                  #
+#                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 set -g __pure_new_session 1
 
 function fish_prompt
@@ -5,7 +12,6 @@ function fish_prompt
 
   # skip first prompt line for near-instant initial load
   if test $__pure_new_session -eq 0
-    echo ""
 
     # root or ssh session
     set -l uid (id -u)
@@ -13,7 +19,7 @@ function fish_prompt
       echo -sn (set_color brblack) $USER "@" (command hostname) " "
     end
 
-    echo -sn (set_color blue) (string replace $HOME "~" $PWD)
+    echo -sn (set_color blue) (prompt_pwd)
 
     set -l cmd_duration (__pure_cmd_duration)
     if test -n "$cmd_duration"
@@ -36,16 +42,17 @@ function fish_prompt
       end
     end
 
-    # draw over trailing characters
-    echo "          "
+      # draw over trailing characters
+      # echo -n " "
   end
+
 
   set prompt_color (set_color magenta)
   if test $last_status -ne 0
     set prompt_color (set_color red)
   end
 
-  echo -sn $prompt_color "❯ " (set_color normal)
+  echo -n $prompt_color "><(º>" (set_color normal)
 
   set __pure_new_session 0
 end
